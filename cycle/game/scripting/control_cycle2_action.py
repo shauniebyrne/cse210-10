@@ -47,3 +47,8 @@ class ControlCycle2Action(Action):
         
         cycle = cast.get_second_actor("cycles")
         cycle.turn_head(self._direction)
+
+        if self._keyboard_service.is_key_down('j') or self._keyboard_service.is_key_down('l') or self._keyboard_service.is_key_down('i') or self._keyboard_service.is_key_down('k'):
+            cycle.grow_tail(1)
+            score = cast.get_second_actor("scores")
+            score.add_points(1)

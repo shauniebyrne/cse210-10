@@ -47,3 +47,8 @@ class ControlCycle1Action(Action):
         
         cycle = cast.get_first_actor("cycles")
         cycle.turn_head(self._direction)
+
+        if self._keyboard_service.is_key_down('a') or self._keyboard_service.is_key_down('d') or self._keyboard_service.is_key_down('w') or self._keyboard_service.is_key_down('s'):
+            cycle.grow_tail(1)
+            score = cast.get_first_actor("scores")
+            score.add_points(1)

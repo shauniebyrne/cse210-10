@@ -26,7 +26,8 @@ class DrawActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        score = cast.get_first_actor("scores")
+        score_1 = cast.get_first_actor("scores")
+        score_2 = cast.get_second_actor("scores")
         #food = cast.get_first_actor("foods")
         cycle1 = cast.get_first_actor("cycles")
         segments_cycle1 = cycle1.get_segments()
@@ -38,6 +39,7 @@ class DrawActorsAction(Action):
         #self._video_service.draw_actor(food)
         self._video_service.draw_actors(segments_cycle1)
         self._video_service.draw_actors(segments_cycle2)
-        self._video_service.draw_actor(score)
+        self._video_service.draw_actor(score_1)
+        self._video_service.draw_actor(score_2)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()
